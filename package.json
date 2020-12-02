@@ -1,0 +1,26 @@
+{
+  "name": "reminderlist",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "http://http",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-session": "^1.4.0",
+    "ejs": "^2.7.4",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "method-override": "^2.3.7",
+    "mongoose": "^5.10.12",
+    "nodemon": "^2.0.6"
+  },
+  "description": ""
+}

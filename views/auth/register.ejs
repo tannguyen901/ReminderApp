@@ -1,0 +1,24 @@
+<div class="container">
+  <form action="/register" method="POST">
+    <div class="form-group">
+
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email" value=<%= email %>>
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+
+      <label for="exampleInputUsername">Username</label>
+      <input type="username" class="form-control" id="exampleInputUsername" placeholder="Username" name="username">
+
+
+    </div>
+    <div class="form-group">
+
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+      <small id="confirmPasswordWarning" class="form-text text-muted">Password must be at least 8 characters. Must include at least 1 uppercase or lowercase letters</small>
+
+
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
