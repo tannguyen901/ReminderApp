@@ -19,8 +19,10 @@ let remindersController = {
       return reminder.id == reminderToFind;
     })
     if (searchResult != undefined) {
+      res.locals.page = "reminders"
       res.render('reminder/single-reminder', { reminderItem: searchResult })
     } else {
+      res.locals.page = "reminders"
       res.render('reminder/index', { reminders: database.reminders[req.session['user']].reminders })
     }
   },
@@ -30,7 +32,9 @@ let remindersController = {
       id: database.reminders[req.session['user']].reminders.length + 1,
       title: req.body.title,
       description: req.body.description,
-      completed: false
+      completed: false,
+      tags: req.body.tags.split(","),
+      subtasks: req.body.subtasks.split(",")
     }
     res.locals.page = "create"
     database.reminders[req.session['user']].reminders.push(reminder);
@@ -42,6 +46,8 @@ let remindersController = {
     let searchResult = database.reminders[req.session['user']].reminders.find(function (reminder) {
       return reminder.id == reminderToFind;
     })
+    console.log(searchResult)
+    res.locals.page = "reminders"
     res.render('reminder/edit', { reminderItem: searchResult })
 
   },
@@ -51,10 +57,13 @@ let remindersController = {
     let searchResult = database.reminders[req.session['user']].reminders.find(function (reminder) {
       if (reminder.id == reminderToFind) {
         reminder.title = req.body.title,
-          reminder.description = req.body.description,
-          reminder.completed = req.body.completed == "true"
+        reminder.tags = req.body.tags.split(','),
+        reminder.subtasks = req.body.subtasks.split(','),
+        reminder.description = req.body.description,
+        reminder.completed = req.body.completed == "true"
       }
     });
+    res.locals.page = "reminders"
     res.redirect('/reminder/' + reminderToFind)
   },
 
@@ -64,6 +73,7 @@ let remindersController = {
       return reminder.id == reminderToFind;
     })
     database.reminders[req.session['user']].reminders.splice(reminderIndex, 1);
+    res.locals.page = "reminders"
     res.redirect('/reminders');
   }
 }

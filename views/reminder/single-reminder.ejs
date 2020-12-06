@@ -3,8 +3,11 @@
 
   <ul class="list-group">
     <li class="list-group-item">
-      <h3><strong><%= reminderItem.title %>: </strong></h3>
-      <h4><%= reminderItem.description %></h4>
+      <h3><strong>Title: <%= reminderItem.title %> </strong></h3>
+      <h4>Description: <%= reminderItem.description %></h4>
+      <h4>Tags: <%= reminderItem.tags %></h4>
+      <h4>Subtasks: <%= reminderItem.subtasks %></h4>
+
       <h4>Completed:
         <% if (reminderItem.completed == true) { %>
         <span class="label label-success">True</span>
