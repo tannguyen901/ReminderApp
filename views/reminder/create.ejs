@@ -1,21 +1,26 @@
+<br>
+<br>
 <div class="container">
   <form action="/reminder" method="POST">
     <div class="form-group">
       <label for="title">Title</label>
-      <input type="text" class="form-control" id="titleInput" placeholder="Title" name="title">
+      <input type="text" class="form-control" id="titleInput" name="title">
     </div>
     <div class="form-group">
       <label for="tags">Tags</label>
-      <input type="text" class="form-control" id="tagInput" placeholder="Tags" name="tags">
+      <input type="text" class="form-control" aria-describedby="tagsHelp" id="tagInput" name="tags">
+      <small id="tagsHelp" class="form-text text-muted">Enter your tags separated by a comma.</small>
     </div>
     <div class="form-group">
       <label for="subtasks">Subtasks</label>
-      <input type="text" class="form-control" id="subTaskInput" placeholder="SubTasks" name="subtasks">
+      <input type="text" class="form-control" aria-describedby="subtaskHelp" id="subTaskInput"  name="subtasks">
+      <small id="subtaskHelp" class="form-text text-muted">Enter your subtasks separated by a comma.</small>
+
     </div>
     <div class="form-group">
       <label for="description">Description</label>
-      <textarea class="form-control" id="descriptionInput" rows="3" placeholder="Description" name="description"></textarea>
+      <textarea class="form-control" id="descriptionInput" rows="3" name="description"></textarea>
     </div>
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>

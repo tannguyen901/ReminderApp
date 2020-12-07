@@ -1,0 +1,41 @@
+<br>
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-sm-6 tableDiv">
+            <div class="row">
+                <div class="container-fluid">
+                    <table class="table col-12 table-responsive">
+                        <thead class="thead-dark">
+                            <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Available Friends</th>
+                            <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-light">
+                            <% if(notFriendList.length !== 0){ %>
+                            <% for (person of notFriendList){ %>
+                                <form action="/friends" method="POST">
+                                <tr>
+                                    <th scope="row"><%= (notFriendList.indexOf(person)+1) %></th>
+                                    <td><input value="<%=person %>" name="person" id="tableNames" class="form-control" type="text"></td>
+                                    <td><button type="submit" class="addFriend btn btn-primary">Add as friend</button></td>
+                                </tr>
+                                </form>
+                            <% } %>
+                            <% } else { %>
+                                <td><p>#</p></td>
+                                <td><p>No friends left to add</p></td>
+                                <td><p> </p></td>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+        
+</div>

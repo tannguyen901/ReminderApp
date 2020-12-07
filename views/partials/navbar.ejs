@@ -1,20 +1,46 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/">Remindly</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
+    <ul class="navbar-nav mr-auto">
         <% if (locals.page === "create") { %>
-          <a class="nav-item nav-link" id="reminderlistbar" href="/reminders">Reminder List</a>
-          <a class="nav-item nav-link active" id="createbar" href="/reminder/new">Create</a>
-          <a class="nav-item nav-link" id="accountLogout" href="/logout">Logout</a>
-        <% }%>
-        <% if (locals.page === "reminders") { %>
-        <a class="nav-item nav-link active" id="reminderlistbar" href="/reminders">Reminder List</a>
-        <a class="nav-item nav-link" id="createbar" href="/reminder/new">Create</a>
-        <a class="nav-item nav-link" id="accountLogout" href="/logout">Logout</a>
-        <% } %>
-    </div>
+          <li class="nav-item">
+            <a class="nav-item nav-link" id="reminderlistbar" href="/reminders">Reminder List</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-item nav-link" id="createbar" href="/reminder/new">Create</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-item nav-link" id="friendsTab" href="/friends">Friends</a>
+          </li>
+
+          <% }%>
+        <% if (locals.page === "friends") { %>
+          <li class="nav-item">
+            <a class="nav-item nav-link" id="reminderlistbar" href="/reminders">Reminder List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-item nav-link" id="createbar" href="/reminder/new">Create</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-item nav-link" id="friendsTab" href="/friends">Friends</a>
+          </li>
+
+          <% }%>
+          <% if (locals.page === "reminders") { %>
+            <li class="nav-item active">
+              <a class="nav-item nav-link" id="reminderlistbar" href="/reminders">Reminder List</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-item nav-link" id="createbar" href="/reminder/new">Create</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-item nav-link" id="friendsTab" href="/friends">Friends</a>
+            </li>
+            <% } %>
+          </ul>
+          <a class="nav-item nav-link btn btn-secondary btn-sm" id="accountLogout" href="/logout">Logout</a>
   </div>
 </nav>

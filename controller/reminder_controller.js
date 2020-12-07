@@ -4,7 +4,15 @@ let database = require("../database");
 let remindersController = {
   list: (req, res) => {
     res.locals.page = "reminders"
-    res.render('reminder/index', { reminders: database.reminders[req.session['user']].reminders })
+    const username = req.session['user']
+    const friends_array = database.users[username].friends
+      let friends_reminders = {}
+      for(friend of friends_array){
+        let reminder = database.reminders[friend]
+        friends_reminders[friend] = reminder
+      }
+      res.locals.page = "reminders";
+      res.render('reminder/index', {reminders: database.reminders[username].reminders,  friends: friends_reminders});
   },
 
   new: (req, res) => {
@@ -46,7 +54,6 @@ let remindersController = {
     let searchResult = database.reminders[req.session['user']].reminders.find(function (reminder) {
       return reminder.id == reminderToFind;
     })
-    console.log(searchResult)
     res.locals.page = "reminders"
     res.render('reminder/edit', { reminderItem: searchResult })
 

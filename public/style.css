@@ -134,3 +134,12 @@ footer.footer {
   margin-bottom: 10px;
   margin-top: 10px;
 }
+
+#tableNames{
+
+  color: #000000;
+  background-color: inherit;
+  background-clip: none;
+  border: none;
+  
+}

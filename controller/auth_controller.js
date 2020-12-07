@@ -14,26 +14,38 @@ let authController = {
   },
 
   loginSubmit: (req, res) => {
-    const username = req.body.username
-    const password = req.body.password
+    const username = req.body.username;
+    const password = req.body.password;
     if (database.users[username] && database.users[username].password === password) {
       req.session['user']= username;
-      res.locals.page = "reminders"
-      res.render('reminder/index', { reminders: database.reminders[username].reminders })
+      const friends_array = database.users[username].friends
+      let friends_reminders = {}
+      for(friend of friends_array){
+        let reminder = database.reminders[friend]
+        friends_reminders[friend] = reminder
+      }
+      res.locals.page = "reminders";
+      res.render('reminder/index', {reminders: database.reminders[username].reminders,  friends: friends_reminders});
     } else {
       res.redirect('/');
     }
   },
   
   registerSubmit: (req, res) => {
-    console.log('register', req.body)
     if (req.body.username && req.body.password) {
       const username = req.body.username
-      database.users[username] = {username: username, password: req.body.password};
+      database.users[username] = {username: username, password: req.body.password, friends:[]};
       database.reminders[username] = {reminders: []}
       req.session['user'] = username;
       res.locals.page = "reminders"
-      res.render('reminder/index', { reminders: database[username].reminders })
+      const friends_array = database.users[username].friends
+      let friends_reminders = {}
+      for(friend of friends_array){
+        let reminder = database.reminders[friend]
+        friends_reminders[friend] = reminder
+      }
+      res.locals.page = "reminders";
+      res.render('reminder/index', {reminders: database.reminders[username].reminders,  friends: friends_reminders});
     } else {
       res.status(400);
       res.send('invalid user');

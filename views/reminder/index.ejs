@@ -1,11 +1,17 @@
+<br>
+<br>
 <div class="container">
-  <h1 class="page-header">Reminders</h1>
+  <h1 class="page-header">Your Reminders</h1>
 
 <ul class="list-group">
+  <% if(Object.keys(reminders).length != 0){ %>
   <% reminders.forEach(function (reminderItem) { %>
     <li class="list-group-item">
-      <strong><%= reminderItem.title %>: </strong>
-      <%= reminderItem.description %>
+      <strong>Title: </strong>
+      <%= reminderItem.title %> 
+      || Description: <%= reminderItem.description %>
+      || Tags: <%= reminderItem.tags %>
+      || Subtasks: <%= reminderItem.subtasks %>
       || Completed:
       <% if (reminderItem.completed == true) { %>
         <span class="label label-success">True</span>
@@ -15,6 +21,39 @@
       <a class="pull-right" href=<%= "/reminder/" + reminderItem.id %>>View</a>
     </li>
   <% }) %>
+  <% } else { %>
+    <p>No Reminder Found</p>
+    <% } %>
+</ul>
+
+</div>
+<br>
+<br>
+<div class="container">
+  <h1 class="page-header">Your Friends' Reminders</h1>
+
+<ul class="list-group">
+  <% if(Object.keys(friends).length !== 0){ %>
+  <% Object.keys(friends).forEach(function (friend) { %>
+  <% friends[friend].reminders.forEach(function (reminderItem) { %>
+    <li class="list-group-item">
+      <strong>Title: </strong>
+      <%= reminderItem.title %> 
+      || Description: <%= reminderItem.description %>
+      || Tags: <%= reminderItem.tags %>
+      || Subtasks: <%= reminderItem.subtasks %>
+      || Completed:
+      <% if (reminderItem.completed == true) { %>
+        <span class="label label-success">True</span>
+      <% } else if (reminderItem.completed == false) { %>
+        <span class="label label-danger">False</span>
+      <% } %>
+    </li>
+  <% }) %>
+  <% }) %>
+  <% } else { %>
+    <p>No Reminder Found</p>
+    <% } %>
 </ul>
 
 </div>
