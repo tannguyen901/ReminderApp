@@ -1,4 +1,3 @@
-README
 Project: Remindly - A Reminder App
 
 INSTRUCTOR
