@@ -26,7 +26,7 @@ USER-VIEW PAGE LIST
 1. index.html - public landing page
 2. create.ejs - creates reminders
 2. edit.ejs - edits reminders
-3. friends.ejs - choose to add friends or remove friends
+3. friends.ejs - add friends
 4. index.ejs - shows reminder list
 5. single-reminder.ejs 
 6. login.ejs - login page 
