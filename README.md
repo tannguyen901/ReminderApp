@@ -4,6 +4,7 @@ INSTRUCTOR
 --------------------------
 Armaan Dhanji
 
+
 TEAM MEMBERS
 --------------------------
 1. Shayan Sabzkoohi
@@ -11,10 +12,10 @@ TEAM MEMBERS
 3. Tan Nguyen
 4. Aeron Pita
 
+
 PROJECT SAMPLE
 --------------------------
 ![remindly sample](remindly.jpg)
-
 
 
 CONTROLLER PAGE LIST
